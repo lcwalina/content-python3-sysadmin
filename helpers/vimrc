@@ -5,6 +5,8 @@ filetype plugin indent on
 
 set ttyfast
 
+set ai
+syntax on
 set laststatus=2
 set encoding=utf-8
 set autoread
@@ -40,6 +42,14 @@ set spelllang=en_us
 " Set leader to comma
 let mapleader = ","
 
+inoremap { {}<Esc>ha
+inoremap ( ()<Esc>ha
+inoremap [ []<Esc>ha
+inoremap " ""<Esc>ha
+inoremap ' ''<Esc>ha
+nnoremap <leader>h :set hls!<cr>
+nnoremap <leader>n :set number!<cr>
+
 " Default to magic mode when using substitution
 cnoremap %s/ %s/\v
 cnoremap \>s/ \>s/\v
@@ -60,7 +70,7 @@ function! RenameFile()
     redraw!
   endif
 endfunction
-map <leader>n :call RenameFile()<cr>
+map <leader>mv :call RenameFile()<cr>
 
 " Strip whitespace on save
 fun! <SID>StripTrailingWhitespaces()
