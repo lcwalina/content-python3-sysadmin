@@ -36,8 +36,8 @@ set expandtab
 set list listchars=tab:»\ ,trail:·
 
 " Configure spell checking
-nmap <silent> <leader>p :set spell!<CR>
-set spelllang=en_us
+" nnoremap <silent> <leader>p :set spell!<CR>
+" set spelllang=en_us
 
 " Set leader to comma
 let mapleader = ","
@@ -55,10 +55,10 @@ cnoremap %s/ %s/\v
 cnoremap \>s/ \>s/\v
 
 " Capture current file path into clipboard
-function! CaptureFile()
-  let @+ = expand('%')
-endfunction
-map <leader>f :call CaptureFile()<cr>
+nnoremap <leader>pwd :let @" = expand("%:p") <cr>
+
+" Call make
+nnoremap <leader>make :!make<cr>
 
 " Rename current file
 function! RenameFile()
@@ -91,7 +91,7 @@ command -nargs=0 Stripwhitespace :call <SID>StripTrailingWhitespaces()
 map <leader>i mmgg=G`m<CR>
 
 " Toggle highlighting of search results
-nnoremap <leader><space> :nohlsearch<cr>
+" nnoremap <leader><space> :nohlsearch<cr>
 
 " Unsmart Quotes
 nnoremap guq :%s/\v[“”]/"/g<cr>
